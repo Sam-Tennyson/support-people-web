@@ -1,0 +1,52 @@
+/* Using SCSS variables to store breakpoints */
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 575px;
+$breakpoint-desktop: 1260px;
+$breakpoint-max: 1378px;
+
+.sidebar_right {
+    // width: 100%;
+    background-color: #f9fafb;
+    @media (max-width: $breakpoint-mobile){
+        &.adjust {
+            width: 90%;
+            margin: auto;
+        }
+    }
+    @media  (min-width:#{ $breakpoint-mobile+1}){
+        &.adjust{
+            position: absolute;
+            left:314px;
+            // right: 310px;
+            right: 0;
+        }
+    }
+    // @media (max-width: $breakpoint-tablet) and (min-width:#{ $breakpoint-mobile+1}){
+
+    // }
+    // @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet){
+    //     // position: absolute;
+    //     &.adjust{ background-color: green;}
+
+    //     // left:314px;
+    //     // right: 310px;
+    // }
+    // @media (min-width: #{($breakpoint-desktop)+1}){
+    //     // position: absolute;
+    //     &.adjust{ background-color: pink;}
+
+    //     // left:314px;
+    //     // right: 310px;
+    // }
+    
+}
+
+.private-screen {
+    background: rgb(117,119,39);
+    background: linear-gradient(60deg, rgba(117,119,39,1) 2%, rgba(54,201,165,1) 100%);
+    color: #fff;
+}
+
+.border-radius-form {
+    border-radius: 20px;
+}

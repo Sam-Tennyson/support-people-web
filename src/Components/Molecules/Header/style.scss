@@ -1,0 +1,37 @@
+/* @import "~bootstrap/scss/utilities"; */
+
+.main-sec {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.right_nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.paddingRight {
+    padding-right: 5px;
+}
+
+.subheading {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.tabclass {
+    cursor: pointer;
+    
+}
+
+.tabclass:hover {
+    color: rgb(10, 167, 36);
+}

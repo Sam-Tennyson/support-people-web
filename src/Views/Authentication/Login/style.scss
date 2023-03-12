@@ -1,0 +1,52 @@
+@import "../../../scss/styles.scss";
+
+.front-screen {
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #202124;
+}
+
+.login_screen {
+  box-shadow: 0 2px 20px rgb(157 182 217 / 20%);
+  border-radius: 20px;
+  border-color: #fff;
+  // background-color: #233361;
+}
+
+.make-res {
+  width: 40%;
+  position: relative;
+  
+}
+
+.login-button{
+  p a {
+    color: rgb(214, 219, 219) !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 992px) {
+  .make-res .form-group {
+    margin: 0 0 50px;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .make-res {
+    padding: 30px;
+    width: 50%;
+  }
+  .make-res .form-group {
+    margin: 0 0 30px;
+  }
+}
+@media (max-width: 767px) {
+  .make-res {
+    padding: 40px;
+    width: 90%;
+  }
+}
