@@ -2,13 +2,13 @@ import { all, put, takeLatest } from "redux-saga/effects";
 import { API } from "../../Services/constants";
 import { GET_CAUSES_ALL_DATA } from "../Actions/ActionType";
 import { startLoader, stopLoader } from "../Actions/Loader";
-import { getRequest } from "../../Shared/Axios";
+import { getRequest, newGetRequest } from "../../Shared/Axios";
 import { setCauseAllData } from "../Actions/CauseData";
 
 function* fetchCauseList({payload}) {
     try {
         yield put(startLoader())
-        const {data, status} = yield getRequest({
+        const {data, status} = yield newGetRequest({
             API: API.CAUSE_LIST
         })
         console.log(data)

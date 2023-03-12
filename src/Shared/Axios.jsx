@@ -2,15 +2,10 @@ import axios from "axios";
 import {API_BASE_URL} from "../Services/constants"
 import pickBy from "lodash/pickBy";
 
-export const newGetRequest = async () => {
+export const newGetRequest = async ({ API = "", DATA = {}, HEADER = {}, PAYLOAD }) => {
   try {
-    const response = await axios.post('https://rapidapi.com/learn/api/rest', {
-      // Data to be sent to the server
-      firstName: 'John',
-      secondName: 'Doe',
-      email: 'jd@gmail.com',
-    });
-    console.log(response.data);
+    const response = await axios.post(API, DATA, {...defaulHeader.headers});
+    console.log(response);
   } catch (error) {
     console.error(error);
   }
@@ -37,7 +32,7 @@ export const getRequest = ({ API = "", headers = {}, params = {}, data = {}, res
 const defaulHeader = {
   headers: {
     "content-type": "application/json",
-    // "access-control-allow-origin": "*"
+    "access-control-allow-origin": "*",
     "withCredentials": true,
     "mode": 'no-cors',
   },
