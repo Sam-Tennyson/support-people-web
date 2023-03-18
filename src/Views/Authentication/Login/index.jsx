@@ -27,31 +27,34 @@ const Login = ({enqueueSnackbar}) => {
             email: val.email,
             pass: val.password
         }
-        try {
-            const {data, status} = await axios.post(
-              "http://localhost:7000/auth/login",
-              formData
-            );
-            let msg = "Successfully Registered";
-            enqueueSnackbar(msg, successSnackbar);
-            // console.log(data)
-            dispatch(setUserData(data?.data))
-            dispatch(setUpdatedToken(data?.token))
-            // console.log(response.data);
-          } catch (error) {
-            console.error(error);
-            let err = "Something went wrong";
-            enqueueSnackbar(err, errorSnackbar);
-          }
+        // try {
+        //     const {data, status} = await axios.post(
+        //       "http://localhost:7000/auth/login",
+        //       formData
+        //     );
+        //     let msg = "Successfully Registered";
+        //     enqueueSnackbar(msg, successSnackbar);
+        //     // console.log(data)
+        //     dispatch(setUserData(data?.data))
+        //     dispatch(setUpdatedToken(data?.token))
+        //     // console.log(response.data);
+        //   } catch (error) {
+        //     console.error(error);
+        //     let err = "Something went wrong";
+        //     enqueueSnackbar(err, errorSnackbar);
+        //   }
 
-        // dispatch(login({
-        //     formData: formData,
-        //     success: () =>{},
-        //     fail: (errMsg) => {
-        //       let err = errMsg ? errMsg : "Something went wrong"
-        //       enqueueSnackbar(err, errorSnackbar)
-        //     }
-        // }))
+        dispatch(login({
+            formData: formData,
+            success: () =>{
+                let msg = "Successfully Registered";
+                enqueueSnackbar(msg, successSnackbar);
+            },
+            fail: (errMsg) => {
+              let err = errMsg ? errMsg : "Something went wrong"
+              enqueueSnackbar(err, errorSnackbar)
+            }
+        }))
     }
   return (
     <>

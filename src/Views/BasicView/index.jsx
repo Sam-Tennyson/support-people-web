@@ -1,11 +1,8 @@
 import { Pagination } from '@mui/material';
-import axios from 'axios';
 import { withSnackbar } from 'notistack';
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import ReactPagination from '../../Components/Atoms/ReactPaginate';
 import { getCauseAllData, setCauseAllData } from '../../Redux/Actions/CauseData';
-import { startLoader, stopLoader } from '../../Redux/Actions/Loader';
 import { errorSnackbar } from '../../Shared/Utilities';
 import "./style.scss"
 
@@ -31,34 +28,32 @@ const BasicView = ({enqueueSnackbar}) => {
   const totalPageRef = useRef()
   const dispatch = useDispatch();
   const causeDataRed = useSelector((state) => state.causeData.cause_data)
+  const causeDataCountRed = useSelector((state) => state.causeData.cause_data_count)
 
-  const [causeList , setCauseList] = useState("")
   const [totalPageCount , setTotalPageCount] = useState("")
 
   useEffect(() => {
-    if (causeDataRed && causeDataRed !== causeList) {
-      setCauseList(causeDataRed)
-      return
+
+    if (causeDataCountRed && causeDataCountRed !== totalPageRef.current) {
+      totalPageRef.current = causeDataCountRed
+      let pageCount = Math.floor(causeDataCountRed/10)
+      setTotalPageCount(pageCount)
+      return;
     }
-  }, [causeDataRed])
+
+  }, [causeDataCountRed])
+
 
   const fetchCauseData = async () => {
-    try {
-      dispatch(startLoader())
-      const {data, status} = await axios.get(
-        `http://localhost:7000/api/causeList?limit=${limitRef.current}&skip=${skipRef.current}`
-      );
-      console.log(data)
-      totalPageRef.current = Math.ceil(data.totalCount/10)
-      setTotalPageCount(Math.ceil(data.totalCount/10))
-      // debugger;
-      dispatch(setCauseAllData(data?.data))
-    } catch (error) {
-      console.error(error);
-      enqueueSnackbar(err, errorSnackbar);
-    } finally {
-      dispatch(stopLoader())
-    }
+    dispatch(getCauseAllData({ 
+      limit:limitRef.current,
+      skip: skipRef.current,
+      success: () =>{},
+      fail: (errMsg) => {
+        let err = errMsg ? errMsg : "Something went wrong"
+        enqueueSnackbar(err, errorSnackbar)
+      }
+    }))
   }
 
   const handlePageClick = (e) => {
@@ -66,13 +61,6 @@ const BasicView = ({enqueueSnackbar}) => {
   }
 
   useEffect(() => {
-    // dispatch(getCauseAllData({ 
-    //   success: () =>{},
-    //   fail: (errMsg) => {
-    //     let err = errMsg ? errMsg : "Something went wrong"
-    //     enqueueSnackbar(err, errorSnackbar)
-    //   }
-    // }))
     fetchCauseData()
   }, [])
 
@@ -81,7 +69,7 @@ const BasicView = ({enqueueSnackbar}) => {
   return (
     <>
       <div className="cause_data_list my-5">
-          <CauseList data={causeList} />
+          <CauseList data={causeDataRed} />
       </div>
 
       <Pagination count={totalPageCount} onChange={(e)=>{
