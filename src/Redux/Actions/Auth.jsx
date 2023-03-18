@@ -1,13 +1,13 @@
 import { LOGIN, SET_USER_DATA, SIGN_UP, UPDATED_TOKEN } from "./ActionType"
 
-export const login = ({payload}) => {
+export const login = (payload) => {
     return {
         type: LOGIN,
         payload,
     }
 }
 
-export const signup = ({payload}) => {
+export const signup = (payload) => {
     return {
         type: SIGN_UP,
         payload,

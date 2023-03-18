@@ -8,6 +8,7 @@ import PrivateLayout from "../Components/Layouts/PrivateLayout";
 import { PrivateRoute } from "./PrivateRoute";
 import PrivateRenderRoutes from "./PrivateRenderRoutes";
 import PublicRenderRoutes from "./PublicRenderRoutes";
+import { updateAuthToken } from "../Shared/Axios";
 
 const GuestRoute = () => {
   return (
@@ -29,18 +30,11 @@ const AuthenticatedRoutes = () => {
 
 const RootRouter = () => {
   const token = useSelector((state) => state.auth.token);
-  // updateAuthToken(token);
-  console.log("TOken", token)
-  // const baseName = process.env.REACT_APP_BASE_NAME;
+  updateAuthToken(token);
   const isAuthenticated = !!token;
-  // const isAuthenticated = true;
-  // const isAuthenticated = false;
-  console.log(isAuthenticated, "isAuthenticated")
-
   return (
     <BrowserRouter basename={""}>
-      {/* <DocumentTitle isAuthenticated={isAuthenticated} /> */}
-      <AppLayout isAuthenticated={isAuthenticated}>{isAuthenticated ? <GuestRoute />: <AuthenticatedRoutes />}</AppLayout>
+      <AppLayout isAuthenticated={isAuthenticated}>{token ? <GuestRoute />: <AuthenticatedRoutes />}</AppLayout>
     </BrowserRouter>
   );
 };
