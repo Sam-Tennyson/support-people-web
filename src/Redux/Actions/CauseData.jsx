@@ -1,4 +1,4 @@
-import { GET_CAUSES_ALL_DATA, SET_CAUSES_ALL_DATA, SET_CAUSE_DATA_COUNT } from "./ActionType"
+import { ADD_CAUSE, GET_CAUSES_ALL_DATA, SET_CAUSES_ALL_DATA, SET_CAUSE_DATA_COUNT } from "./ActionType"
 
 export const getCauseAllData = (payload) => {
     return {
@@ -17,6 +17,13 @@ export const setCauseAllData = (payload) => {
 export const setCauseDataCount = (payload) => {
     return {
         type: SET_CAUSE_DATA_COUNT,
+        payload
+    }
+}
+
+export const addCauseData = (payload) => {
+    return {
+        type: ADD_CAUSE,
         payload
     }
 }
