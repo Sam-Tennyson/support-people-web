@@ -1,5 +1,6 @@
 export const ROUTE_CONSTANTS = {
-    DASHBOARD: "",
+    DASHBOARD: "/",
     LOGIN: "/login",
-    SIGNUP: "/signup"
+    SIGNUP: "/signup",
+    ADD_CAUSE: "/add-cause"
 }

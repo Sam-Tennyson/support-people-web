@@ -1,7 +1,10 @@
+@import "../../../scss/styles.scss";
+
 .border-radius-form {
     border-radius: 20px;
 }
 
 .error {
-    color: red;
+    color: #ff3636;
+    font-size: 0.8rem;
 }

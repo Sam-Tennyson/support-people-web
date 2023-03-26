@@ -1,57 +1,51 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TextField from "../../../Components/Atoms/TextField";
-import { ERROR_MESSAGE, PLACEHOLDER, STRINGS } from "../../../Shared/Constants";
+import { ERROR_MESSAGE, PLACEHOLDER, RESPONSE, STRINGS } from "../../../Shared/Constants";
 import * as Yup from "yup";
 import "./style.scss";
 import { signup } from "../../../Redux/Actions/Auth";
 import { withSnackbar } from "notistack";
 import { errorSnackbar, successSnackbar } from "../../../Shared/Utilities";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { ROUTE_CONSTANTS } from "../../../Shared/Routes";
 
 const validationSchema = Yup.object({
-  email: Yup.string().required(ERROR_MESSAGE.FIELD_REQUIRED),
-  password: Yup.string().required(ERROR_MESSAGE.FIELD_REQUIRED),
-  name: Yup.string().required(ERROR_MESSAGE.FIELD_REQUIRED),
-  phone: Yup.string().required(ERROR_MESSAGE.FIELD_REQUIRED),
+  email: Yup.string().trim().required(ERROR_MESSAGE.FIELD_REQUIRED),
+  password: Yup.string().trim().required(ERROR_MESSAGE.FIELD_REQUIRED),
+  name: Yup.string().trim().required(ERROR_MESSAGE.FIELD_REQUIRED),
+  phone: Yup.string().trim().required(ERROR_MESSAGE.FIELD_REQUIRED),
 });
 
 const Signup = ({ enqueueSnackbar }) => {
   const navigate = useNavigate();
-  const handleSubmit = async (val) => {
+  const dispatch = useDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (val) => {
     console.log(val);
-    // debugger;
-    let data = {
+    
+    let formData = {
       email: val.email,
       pass: val.password,
       name: val.name,
       phone: val.phone,
     };
 
-    try {
-      const response = await axios.post(
-        "http://localhost:7000/auth/signup",
-        data
-      );
-      let msg = "Successfully Registered";
-      enqueueSnackbar(msg, successSnackbar);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-      console.log(error);
-      let err = "Something went wrong";
-      enqueueSnackbar(err, errorSnackbar);
-    }
-
-    // dispatch(signup({
-    //     formData: formData,
-    //     success: () =>{},
-    //     fail: (errMsg) => {
-    // let err = errMsg ? errMsg : "Something went wrong"
-    // enqueueSnackbar(err, errorSnackbar)
-    //     }
-    // }))
+    dispatch(signup({
+        formData: formData,
+        success: () => {
+          let msg = RESPONSE.SUCCESS_REGISTER;
+          enqueueSnackbar(msg, successSnackbar);
+          navigate({pathname: ROUTE_CONSTANTS.LOGIN})
+        },
+        fail: (errMsg) => {
+          let err = errMsg ? errMsg : ERROR_MESSAGE.SOMETHING_WENT_WRONG;
+          enqueueSnackbar(err, errorSnackbar);
+        },
+    }))
   };
   return (
     <>
@@ -94,12 +88,12 @@ const Signup = ({ enqueueSnackbar }) => {
                     <label className="form-label"> {STRINGS.PASSWORD} </label>
                     <TextField
                       name={"password"}
-                      type={"password"}
+                      type={!showPassword ? "password": "text" }
                       placeholder={PLACEHOLDER.PASSWORD}
                     />
                   </div>
                   <div className="col-12 my-2 ">
-                    <input className="form-check-input" type="checkbox" />
+                    <input className="form-check-input" type="checkbox"  onClick={() => setShowPassword((prev) => !prev)} />
                     <label className="form-check-label mx-2">
                       {" "}
                       {STRINGS.SHOW_PASSWORD}{" "}

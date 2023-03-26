@@ -6,7 +6,7 @@ const TextField = (props) => {
   return (
     <>
         <input 
-            className={"form-control border-radius-form"}
+            className={"form-controls border-radius-form"}
             {...field}
 
             {...props}
