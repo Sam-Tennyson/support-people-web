@@ -8,7 +8,6 @@ import { STRINGS, STRING_NUMBER, TAB_MINT } from "../../../Shared/Constants";
 import { ROUTE_CONSTANTS } from "../../../Shared/Routes";
 import ReactTippy from "../../Atoms/ReactTippy";
 import ProfileTippyContent from "../../Cells/ProfileTippyContent";
-// import TAB_MINT from ''
 // import LoginIcon from '@mui/icons-material/Login';
 // import ExploreIcon from '@mui/icons-material/Explore';
 import "./style.scss";
@@ -37,12 +36,13 @@ const Header = () => {
   
   return (
     <>
-      <div className="shadow-sm p-3 mb-5 bg-body rounded">
+      <div className="shadow-sm p-3 mb-5  uiHeader">
         <div className="d-flex justify-content-between align-items-center px-5 ">
           <div onClick={() => navigate(ROUTE_CONSTANTS.DASHBOARD)}>
             {/* <ExploreIcon /> */}
+            {STRINGS.SUPPORT_PEOPLE}
           </div>
-          <div  onClick={() => navigate(ROUTE_CONSTANTS.DASHBOARD)}>{STRINGS.SUPPORT_PEOPLE}</div>
+          <div  onClick={() => navigate(ROUTE_CONSTANTS.DASHBOARD)}></div>
           <div className="d-flex flex-column">
             <div className="d-flex justify-content-between">
               
@@ -57,7 +57,6 @@ const Header = () => {
 
           </div>
         </div>
-        <hr />
         {/* <div className="d-flex justify-content-between my-3 px-5 subheading">
           {TAB_MINT.map((item, index) => {
             return (

@@ -58,9 +58,9 @@ const Login = ({ enqueueSnackbar }) => {
   };
   return (
     <>
-      <div className="front-screen d-flex align-items-center min-vh-100">
+      <div className="front-screen d-flex align-items-center flex-column min-vh-100">
         <div className="login_screen make-res p-5 ">
-          <h2 className="text-center">{STRINGS.LOGIN}</h2>
+          <h2 className="text-center mb-2">{STRINGS.LOGIN}</h2>
           <Formik
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -92,11 +92,11 @@ const Login = ({ enqueueSnackbar }) => {
                       {STRINGS.SHOW_PASSWORD}{" "}
                     </label>
                   </div>
-                  <div className="col-12 my-2 d-flex login-button justify-content-between align-items-center">
+                  <div className="col-12 my-2  login-button justify-content-between align-items-center">
                     <button className="btn btn-secondary">
                       {STRINGS.LOGIN}
                     </button>
-                    <p>
+                    <p className="mt-3 mb-0">
                       {" "}
                       {STRINGS.DIDNT_REGISTER}{" "}
                       <a onClick={() => navigate("/signup")}>

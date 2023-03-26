@@ -9,6 +9,7 @@ import { errorSnackbar, successSnackbar } from '../../../Shared/Utilities'
 import { withSnackbar } from 'notistack'
 import { useNavigate } from 'react-router-dom'
 import { ROUTE_CONSTANTS } from '../../../Shared/Routes'
+import './style.scss'
 
 const validationSchema = yup.object({
   title: yup.string().trim().required(ERROR_MESSAGE.FIELD_REQUIRED),
@@ -39,7 +40,7 @@ const AddCause = ({enqueueSnackbar}) => {
   }
   return (
     <>
-        <div className="containter">
+        <div className="container shadow-sm custom-add">
         <Formik
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -53,6 +54,7 @@ const AddCause = ({enqueueSnackbar}) => {
                     <TextField
                       name={"title"}
                       type={"text"}
+                      style={{color: "#000"}}
                       placeholder={PLACEHOLDER.TITLE}
                     />
                   </div>
@@ -61,6 +63,7 @@ const AddCause = ({enqueueSnackbar}) => {
                     <TextField
                       name={"description"}
                       type={"textarea"}
+                      style={{color: "#000"}}
                       row="2"
                       placeholder={PLACEHOLDER.DESCRPTION}
                     />

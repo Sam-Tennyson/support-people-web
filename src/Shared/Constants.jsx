@@ -113,7 +113,8 @@ export const STRINGS = {
     SUPPORT_PEOPLE: "Support People",
     TITLE: "Title",
     DESCRPTION: "Description",
-    ADD: "Add"
+    ADD: "Add",
+    NO_DATA_FOUND: "No Data Found",
 }
 
 export const ERROR_MESSAGE = {

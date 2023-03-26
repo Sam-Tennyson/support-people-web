@@ -10,7 +10,7 @@ function* fetchCauseList({payload}) {
     try {
         yield put(startLoader())
         const {data, status} = yield getRequest({
-            API: API.CAUSE_LIST+`?limit=${payload.limit}&skip=${payload.skip}`
+            API: API.CAUSE_LIST+`?limit=${payload.limit}&skip=${payload.skip}&all=`
         })
 
         if (status === 200) {

@@ -1,16 +1,20 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../Molecules/Header'
+import LeftSidebar from '../Molecules/LeftSidebar'
 import './style.scss'
 const PublicLayout = ({children}) => {
   return (
     <>
         <Header />
         {/* <Sidebar /> */}
-        <div className='m-3 p-4 sidebar_right adjust'>
-        {children}
-        </div>
-        {/* <RightSidebar /> */}
+
+          <div className=' mx-2 sidebar_right adjust'>
+          {children}
+          </div>
+          <div className="p-4 left-sidebar adjust">
+            <LeftSidebar />
+          </div>
         <Outlet />
     </>
   )

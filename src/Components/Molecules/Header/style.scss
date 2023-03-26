@@ -1,5 +1,13 @@
 /* @import "~bootstrap/scss/utilities"; */
 
+.uiHeader {
+    font-size: 1rem;
+    border-bottom: 1px solid #000;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
 .main-sec {
     display: flex;
     justify-content: space-between;

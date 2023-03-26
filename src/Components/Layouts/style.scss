@@ -4,25 +4,40 @@ $breakpoint-mobile: 575px;
 $breakpoint-desktop: 1260px;
 $breakpoint-max: 1378px;
 
+.commonBody {
+    background-color: #1f4367;
+}
+
 .sidebar_right {
     // width: 100%;
-    background-color: #f9fafb;
+    // box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 8px;
+    z-index: -1;
     @media (max-width: $breakpoint-mobile){
         &.adjust {
             width: 90%;
             margin: auto;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 140px;
         }
     }
     @media  (min-width:#{ $breakpoint-mobile+1}){
         &.adjust{
             position: absolute;
             left:314px;
-            // right: 310px;
             right: 0;
+            top: 140px;
         }
     }
-    // @media (max-width: $breakpoint-tablet) and (min-width:#{ $breakpoint-mobile+1}){
-
+    // @media (min-width: $breakpoint-tablet){
+    //     &.adjust{
+    //         position: absolute;
+    //         left:314px;
+    //         width: 80%;
+    //         // right: 20px;
+    //     }
     // }
     // @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet){
     //     // position: absolute;
@@ -49,4 +64,26 @@ $breakpoint-max: 1378px;
 
 .border-radius-form {
     border-radius: 20px;
+}
+
+.left-sidebar {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 8px;
+    background: #fdeeee;
+    @media (max-width: $breakpoint-mobile){
+        &.adjust {
+            // width: 90%;
+            // margin: auto;
+            display: none;
+        }
+    }
+    @media  (min-width:#{ $breakpoint-mobile+1}){
+        &.adjust{
+            position: fixed;
+            left:0;
+            top: 85px;
+            width: 310px;
+           
+        }
+    }
 }

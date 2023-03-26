@@ -1,5 +1,13 @@
-.cause_data_list .cause_box {
-    box-shadow: 0 2px 4px rgb(157 182 217 / 20%);
-    border-radius: 20px;
-    background-color: white;
+.cause_data_list {
+    .cause_box {
+        // box-shadow: 0 2px 4px rgba(157, 182, 217, 0.2);
+        border-radius: 8px;
+        background-color: white;
+        max-height: 150px;
+        overflow-y: scroll;
+        word-wrap: break-word;
+    }
+    .cause_title {
+  
+    }
 }
