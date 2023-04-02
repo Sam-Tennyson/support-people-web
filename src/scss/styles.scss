@@ -1,6 +1,11 @@
 // Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
 
+body {
+    background-color: gainsboro !important;
+    font-family: 'Arvo', serif;
+}
+
 .form-controls {
     display: block;
     width: 100%;
@@ -23,5 +28,11 @@
     border-bottom: 1px solid grey;
     /* border-radius: .375rem; */
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.iconBackground {
+    svg {
+        font-size: 1rem;
+    }
 }
 

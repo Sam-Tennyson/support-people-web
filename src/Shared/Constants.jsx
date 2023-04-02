@@ -117,6 +117,16 @@ export const STRINGS = {
     NO_DATA_FOUND: "No Data Found",
 }
 
+export const LABELS = {
+    EDIT_CAUSE: "Edit Cause",
+    ADD: "Add",
+    UPDATE: "Update",
+    CONFIRMATION: "Confirmation",
+    CANCEL: "Cancel",
+    DELETE: "Delete",
+    ADD_CAUSE : "Add Cause"
+}
+
 export const ERROR_MESSAGE = {
     FIELD_REQUIRED: "Field is required",
     SOMETHING_WENT_WRONG: "Sorry, Something went wrong",
@@ -132,6 +142,10 @@ export const RESPONSE = {
 
 export const PROFILE_TIPPY =[
     {
+        label: "Dashboard",
+        value: "0"
+    },
+    {
         label: "Profile",
         value: "1"
     },
@@ -139,10 +153,18 @@ export const PROFILE_TIPPY =[
         label: "Add Cause",
         value: "2"
     },
-
+    {
+        label: "My Cause",
+        value: "3"
+    },
+    {
+        label: "Logout",
+        value: "4"
+    },
 ]
 
 export const STRING_NUMBER = {
+    ZERO: "0",
     ONE: "1",
     TWO: "2",
     THREE: "3",
@@ -158,4 +180,8 @@ export const STRING_NUMBER = {
     THIRTHEEN: "13",
     FOURTEEN: "14",
     FIFTHTEEN: "15",
+}
+
+export const CONFIRM_MESSAGE = {
+    CAUSE_DELETE: "Are you sure you want delete this cause ?"
 }

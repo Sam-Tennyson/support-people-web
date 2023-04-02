@@ -1,11 +1,14 @@
 .cause_data_list {
     .cause_box {
-        // box-shadow: 0 2px 4px rgba(157, 182, 217, 0.2);
+        box-shadow: 0 0px 25px rgba(157, 182, 217, 0.2);
         border-radius: 8px;
         background-color: white;
-        max-height: 150px;
-        overflow-y: scroll;
+        // max-height: 150px;
+        // overflow-y: scroll;
+        font-size: 1rem;
+        line-height: 2;
         word-wrap: break-word;
+        // border-color: 2px solid rgba(229 229 229/1) ;
     }
     .cause_title {
   
