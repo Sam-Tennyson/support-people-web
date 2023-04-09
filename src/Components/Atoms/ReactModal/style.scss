@@ -1,0 +1,118 @@
+@import "../../../scss/base.scss"; 
+
+$base-color:"red";
+
+.react_modal_content {
+    pointer-events: auto;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x:hidden;
+    background: rgba(0, 0, 0, 0.65);
+    transform: transition(opacity, 0.15s, linear);
+
+    top: '50%';
+    left: '50%';
+    right: 'auto';
+    bottom: 'auto';
+    // margin-right: '-50%';
+    // transform: 'translate(-50%, -50%)';
+
+    z-index: 999;
+}
+
+.Modal {
+    padding: 20px;
+    margin: 0 auto;
+    background: transparent;
+    outline: none !important;
+    font-family: 'Arvo', serif;
+    &.modal_md {
+        width: 600px;
+        @media (max-width: 767px) {
+            width: 94%;
+        }
+    }
+    &.modal_lg {
+        width: 1200px;
+        @media (max-width: 767px) {
+            width: 94%;
+        }
+    }
+    &.react_modal_main {
+        outline: none !important;
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(center);
+        @media (min-width: 320px) {
+            margin: 1.75rem auto;
+            min-height: calc(100% - (1.75rem * 2));
+        }
+        .react_modal_content {
+            position: relative;
+            background: #fff;
+            // padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+            span {
+                font-size: 1rem;
+                line-height: 1.1;
+                @media (min-width: 1200px) {
+                    font-size: 1rem;
+                }
+            }
+
+        }
+    }
+
+    .modal-header {
+        padding-right: 40px;
+        margin: 0 0 0px;
+        .modal-title {
+            color: #000;
+            word-break: break-word;
+        }
+    }
+    @at-root {
+        .close_btn {
+            background-color: #fff;
+            border-radius: 0.375rem;
+            width: 32px; height: 32px;
+            position: absolute;
+            border: 0;
+            right: 10px;
+            top: 10px;
+            line-height: 1;
+            padding: 0.44rem;
+            z-index: 1;
+            transform: translate(23px, -25px);
+            box-shadow: 0 0.125rem 0.25rem rgba(165 163 174 / 30%) !important;
+            svg {
+                max-width: 15px;
+                max-height: 15px;
+                cursor: pointer;
+                opacity: 0.5;
+                path {
+                    fill: $base-color;
+                    
+                }
+            }
+            &:hover {
+                background: #fff;
+                transform: translate(20px, -20px);
+            }
+        }
+    }
+    .close_btn {
+        box-shadow: 0 0.125rem 0.25rem  rgba(165 163 174 / 10%) !important;
+    }
+}

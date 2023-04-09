@@ -25,8 +25,17 @@ const Header = () => {
   const handleClick = (e) => {
     console.log(e)
     switch (e.value) {
+
+      case STRING_NUMBER.ZERO:
+        navigate({pathname: ROUTE_CONSTANTS.DASHBOARD})
+        break;
+
       case STRING_NUMBER.TWO:
         navigate({pathname: ROUTE_CONSTANTS.ADD_CAUSE})
+        break;
+
+      case STRING_NUMBER.THREE:
+        navigate({pathname: ROUTE_CONSTANTS.MY_CAUSE})
         break;
     
       default:
@@ -39,7 +48,6 @@ const Header = () => {
       <div className="shadow-sm p-3 mb-5  uiHeader">
         <div className="d-flex justify-content-between align-items-center px-5 ">
           <div onClick={() => navigate(ROUTE_CONSTANTS.DASHBOARD)}>
-            {/* <ExploreIcon /> */}
             {STRINGS.SUPPORT_PEOPLE}
           </div>
           <div  onClick={() => navigate(ROUTE_CONSTANTS.DASHBOARD)}></div>
@@ -57,19 +65,7 @@ const Header = () => {
 
           </div>
         </div>
-        {/* <div className="d-flex justify-content-between my-3 px-5 subheading">
-          {TAB_MINT.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="mx-2 tabclass"
-                onClick={() => handleTab(item)}
-              >
-                {item?.label}
-              </div>
-            );
-          })}
-        </div> */}
+
       </div>
     </>
   );

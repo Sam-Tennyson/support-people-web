@@ -3,7 +3,7 @@ import { withSnackbar } from 'notistack';
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCauseAllData, setCauseAllData } from '../../../Redux/Actions/CauseData';
-import { STRINGS } from '../../../Shared/Constants';
+import { STRINGS, STRING_NUMBER } from '../../../Shared/Constants';
 import { errorSnackbar } from '../../../Shared/Utilities';
 import "./style.scss"
 
@@ -11,11 +11,12 @@ const CauseList = ({data}) =>   {
   if (data) {
 
     return data.map((item, ind) => (
-      <div className='card cause_box my-2 ' key={ind}>
-        <div className='card-header cause_title'>
+      <div className=' cause_box m-3 p-5' key={ind}>
+        <h3 className='cause_title  '>
           {item.title}
-        </div>
-        <div className="card-body cause_description">
+        </h3>
+        <p className='text-muted d-flex justify-content-end align-items-center'> Added by {item?.userId?.name}</p>
+        <div className=" cause_description ">
           {item?.description}
         </div>
       </div>
@@ -47,6 +48,7 @@ const BasicView = ({enqueueSnackbar}) => {
 
   const fetchCauseData = async () => {
     dispatch(getCauseAllData({ 
+      all: STRING_NUMBER.ONE,
       limit:limitRef.current,
       skip: skipRef.current,
       success: () =>{},
@@ -75,11 +77,15 @@ const BasicView = ({enqueueSnackbar}) => {
             <CauseList data={causeDataRed} />
         </div>
 
-        <Pagination count={totalPageCount} onChange={(e)=>{
-          let skipedData = (Number(e.target.innerText)-1)*10
-          skipRef.current=skipedData
-          fetchCauseData()
-        } }/>
+        <Pagination 
+          count={totalPageCount} 
+          onChange={(e, page)=>{
+            console.log(e, page)
+            // let skipedData = (Number(e.target.innerText)-1)*10
+            skipRef.current= (page-1)*10
+            fetchCauseData()
+          }}
+          />
         </>
       ) : <div className='d-flex justify-content-center align-items-center'>{STRINGS.NO_DATA_FOUND}</div>}
     </>

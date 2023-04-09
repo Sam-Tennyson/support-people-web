@@ -1,0 +1,32 @@
+
+.MuiMenu-paper {
+    .MuiList-root {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        outline: 0;
+        width: 190px !important;
+
+    }
+}
+
+.imageFun {
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    animation: mover 2s infinite  alternate;;
+
+
+  }
+  
+
+@keyframes mover {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-20px); }
+}

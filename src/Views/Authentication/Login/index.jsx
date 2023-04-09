@@ -60,6 +60,10 @@ const Login = ({ enqueueSnackbar }) => {
     <>
       <div className="front-screen d-flex align-items-center flex-column min-vh-100">
         <div className="login_screen make-res p-5 ">
+          <div className="imageCont">
+          <div className="imageFun"></div>
+
+          </div>
           <h2 className="text-center mb-2">{STRINGS.LOGIN}</h2>
           <Formik
             onSubmit={handleSubmit}
