@@ -99,7 +99,7 @@ function MUIHeader() {
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <IconButton onClick={()=>  navigate({pathname: ROUTE_CONSTANTS.DASHBOARD})}>
 
-          <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} alt="Remy Sharp" src={Images.testJoker} />
+          <Avatar className='imageFun' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} alt="Remy Sharp" src={Images.testJoker} />
           </IconButton>
           <Typography
             variant="h6"
@@ -155,7 +155,7 @@ function MUIHeader() {
             </Menu>
           </Box>
           
-          <Avatar sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} alt="Remy Sharp" src={Images.testJoker} />
+          <Avatar className="imageFun" sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} alt="Remy Sharp" src={Images.testJoker} />
           <Typography
             variant="p"
             noWrap

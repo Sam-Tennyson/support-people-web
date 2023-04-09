@@ -11,11 +11,12 @@ const CauseList = ({data}) =>   {
   if (data) {
 
     return data.map((item, ind) => (
-      <div className=' cause_box m-3 p-3' key={ind}>
-        <h3 className='cause_title px-3'>
+      <div className=' cause_box m-3 p-5' key={ind}>
+        <h3 className='cause_title  '>
           {item.title}
         </h3>
-        <div className=" cause_description px-3">
+        <p className='text-muted d-flex justify-content-end align-items-center'> Added by {item?.userId?.name}</p>
+        <div className=" cause_description ">
           {item?.description}
         </div>
       </div>

@@ -9,8 +9,14 @@
         line-height: 2;
         word-wrap: break-word;
         // border-color: 2px solid rgba(229 229 229/1) ;
+        p {
+            font-size: 0.8rem;
+        }
     }
     .cause_title {
   
+    }
+    .cause_description {
+        text-align: justify;
     }
 }

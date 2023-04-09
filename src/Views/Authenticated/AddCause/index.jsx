@@ -1,4 +1,4 @@
-import { Field, Form, Formik } from 'formik'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import TextField from '../../../Components/Atoms/TextField'
@@ -40,9 +40,9 @@ const AddCause = ({enqueueSnackbar}) => {
   }
   return (
     <>
-        <div className="container shadow-sm custom-add p-4 ">
+        <div className="container shadow-sm custom-add p-5 my-2 ">
           <h2 className='text-center'>{LABELS.ADD_CAUSE}</h2>
-          <hr />
+          {/* <hr /> */}
         <Formik
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
@@ -72,6 +72,9 @@ const AddCause = ({enqueueSnackbar}) => {
                         type="text"
                         rows="6"  
                       />
+                    <div className='error'>
+                      <ErrorMessage name={"description"} />
+                  </div>
                   </div>
                   <div className="col-12 my-2 d-flex login-button justify-content-between align-items-center">
                     <button className="btn btn-secondary">

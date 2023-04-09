@@ -12,3 +12,21 @@
 
     }
 }
+
+.imageFun {
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    animation: mover 2s infinite  alternate;;
+
+
+  }
+  
+
+@keyframes mover {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-20px); }
+}

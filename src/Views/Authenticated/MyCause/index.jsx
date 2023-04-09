@@ -12,7 +12,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import MenuIcon from '@mui/icons-material/Menu';
 import "./style.scss";
 import ReactModal from "../../../Components/Atoms/ReactModal";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import TextField from "../../../Components/Atoms/TextField";
 import ConfirmationModal from "../../../Components/Atoms/ConfirmationModal";
 import * as Yup from 'yup'
@@ -212,6 +212,9 @@ const MyCause = ({enqueueSnackbar}) => {
                                       type="text"
                                       rows="5"  
                                     />
+                                    <div className='error'>
+                                      <ErrorMessage name={"description"} />
+                                  </div>
                                 </div>
 
                                 <div className="col-12 my-3 ">
@@ -242,8 +245,8 @@ const MyCause = ({enqueueSnackbar}) => {
             {causeDataRed
               ? causeDataRed.map((item, ind) => {
                   return (
-                    <div className="card cause_box my-2 " key={ind}>
-                      <h3 className="p-3 d-flex justify-content-between align-items-center cause_title">
+                    <div className="card cause_box m-3 p-5 " key={ind}>
+                      <h3 className="mb-0 d-flex justify-content-between align-items-center cause_title">
                         {item.title}
                         <div className="d-flex justify-content-between align-items-center">
                         <IconButton
@@ -263,8 +266,8 @@ const MyCause = ({enqueueSnackbar}) => {
                         </IconButton>
                         </div>
                       </h3>
-                      <hr className="m-0"/>
-                      <div className="card-body cause_description">
+                      {/* <hr className="m-0"/> */}
+                      <div className="cause_description ">
                         {item?.description}
                       </div>
                     </div>

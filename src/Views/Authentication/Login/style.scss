@@ -10,9 +10,57 @@
 .login_screen {
   box-shadow: 0 2px 20px rgb(157 182 217 / 20%);
   border-radius: 20px;
-  border-color: #fff;
-  // background-color: #233361;
+  border-color: #fff; 
+  
 }
+
+
+.imageFun {
+    
+  /* Center and scale the image nicely */
+  background-image: url('../../../Assets/images/astest.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // position: absolute;
+  width: 100px;
+  height: 100px;
+  // transition: transform 1s ;
+  // animation: mover 2s infinite  alternate;;
+}
+
+@keyframes MoveUpDown {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(150px);
+    }
+    100% {
+      transform: translateX(250px);
+
+    }
+} 
+
+@keyframes leftToRight {
+  0% {
+    left: 0;
+    // transform: translateX(0);
+  }
+  
+  100% {
+    right: 0;
+    // transform: translateX(250px);
+
+  }
+} 
+
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+
 
 .make-res {
   width: 40%;
@@ -32,6 +80,7 @@
   .make-res .form-group {
     margin: 0 0 50px;
   }
+  
 }
 
 
